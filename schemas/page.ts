@@ -1,10 +1,8 @@
-import { PageIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'page',
   title: 'Page',
-  icon: PageIcon,
   type: 'document',
   fields: [
     defineField({
