@@ -8,6 +8,23 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+        isUnique: (value, context) => context.defaultIsUnique(value, context),
+      },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'pageBuilder',
       title: 'Page builder',
       type: 'array',
@@ -16,33 +33,34 @@ export default defineType({
           name: "hero",
           type: "object",
           title: "Hero",
-        fields: [
-          {
-            name: 'heading',
-            type: 'string',
-            title: 'Heading'
-          },
-          {
-            name: 'tagline',
-            type: 'string',
-            title: 'Tagline'
-          },
-          {
-            name: 'image',
-            type: 'image',
-            title: 'Image',
-            options: {
-              hotspot: true,
+          fields: [
+            {
+              name: 'heading',
+              type: 'string',
+              title: 'Heading'
             },
-            fields: [
-              {
-                name: 'alt',
-                type: 'string',
-                title: 'Alternative text'
-              }
-            ]
-          }
-        ]}
+            {
+              name: 'tagline',
+              type: 'string',
+              title: 'Tagline'
+            },
+            {
+              name: 'image',
+              type: 'image',
+              title: 'Image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text'
+                }
+              ]
+            }
+          ]
+        }
       ]
     })
   ],
