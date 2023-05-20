@@ -57,14 +57,7 @@ export default function PostPage(props: PostPageProps) {
                   }
                 </div>
                 <div>
-                  {"Modules to render: "}
-                  {post.pageBuilder.map((name) => (
-                    name.tagline
-                    )
-                  )}                  
-                </div>  
-                <div>
-                  {"Modules to render: "}
+                  {"Modules render area: "}
                   {post.pageBuilder.map((name) => (
                     name._type=='hero' ? (<Hero heading={name.heading} tagline={name.tagline} image={name.image}/>) : (
                       name._type=='callToAction' ? ("<callToAction />") : (
