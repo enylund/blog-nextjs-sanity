@@ -6,7 +6,7 @@ const postFields = groq`
   date,
   excerpt,
   coverImage,
-  pageBuilder[]->,
+  pageBuilder[],
   "slug": slug.current,
   "author": author->{name, picture}
 `
@@ -54,7 +54,7 @@ export interface Post {
   author?: Author
   slug?: string
   content?: any
-  pageBuilder: any[]
+  pageBuilder: any
 }
 
 export interface Settings {

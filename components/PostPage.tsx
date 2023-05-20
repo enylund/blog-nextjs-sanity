@@ -53,8 +53,14 @@ export default function PostPage(props: PostPageProps) {
                 <PostBody content={post.content} />
                 <div>
                   {
-                    post.pageBuilder.length
+                    "Number of modules: "+post.pageBuilder.length
                   }
+                </div>
+                <div>
+                  {"Modules to render: "}
+                  {post.pageBuilder.map((name) => (
+                    " "+name._type+", "
+                  ))}                  
                 </div>
                 <Hero />
               </article>
