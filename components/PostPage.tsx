@@ -59,10 +59,13 @@ export default function PostPage(props: PostPageProps) {
                 <div>
                   {"Modules to render: "}
                   {post.pageBuilder.map((name) => (
-                    " "+name._type+", "
+                    name._type=='hero' ? ("<Hero />") : (
+                      name._type=='callToAction' ? ("<callToAction />") : (
+                        name._type=='video' ? ("<Video />") : ("")
+                      )
+                    )
                   ))}                  
-                </div>
-                <Hero />
+                </div>                
               </article>
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}
