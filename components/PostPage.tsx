@@ -7,6 +7,7 @@ import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
 import PostTitle from 'components/PostTitle'
 import SectionSeparator from 'components/SectionSeparator'
+import Hero from 'components/Hero'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import { notFound } from 'next/navigation'
@@ -50,6 +51,12 @@ export default function PostPage(props: PostPageProps) {
                   author={post.author}
                 />
                 <PostBody content={post.content} />
+                <div>
+                  {
+                    post.pageBuilder.length
+                  }
+                </div>
+                <Hero />
               </article>
               <SectionSeparator />
               {morePosts?.length > 0 && <MoreStories posts={morePosts} />}

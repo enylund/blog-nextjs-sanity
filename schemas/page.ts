@@ -58,9 +58,42 @@ export default defineType({
               ]
             }
           ]
+        },
+        { 
+          name: "callToAction",
+          type: "object",
+          title: "Call to Action",
+          fields: [
+            {
+              name: 'linkText',
+              type: 'string',
+              title: 'Link Text'
+            },
+            {
+              name: 'url',
+              type: 'url',
+              title: 'URL'
+            }
+          ]
+        },
+        {
+          name: "video",
+          type: "object",
+          title: "Video",
+          fields: [
+            {
+              name: 'videoLabel',
+              type: 'string',
+              title: 'Video Label'
+            },
+            {
+              name: 'url',
+              type: 'string',
+              title: 'URL'
+            },
+          ]
         }
       ]
     })
   ],
 })
-
